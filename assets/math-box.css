@@ -1,0 +1,144 @@
+/* Teaching statements in the reading edition and the live classroom deck. */
+#main .module .mathbox {
+  --box-rule: #a8c4ba;
+  --box-accent: #18594e;
+  --box-paper: #eef5f1;
+  --box-tag-paper: #d7e9df;
+  --box-tag-ink: #18594e;
+  --box-gutter: clamp(15px, 2.2vw, 24px);
+  display: flow-root;
+  min-inline-size: 0;
+  margin: 1.35em 0;
+  padding: 0.88em var(--box-gutter) 0.95em;
+  border: 1px solid var(--box-rule);
+  border-radius: 3px;
+  background: var(--box-paper);
+  color: var(--reader-ink);
+}
+#main .module .mathbox[data-kind="definition"] {
+  border-inline-start: 4px solid var(--box-accent);
+}
+#main .module .mathbox[data-kind="theorem"] {
+  --box-accent: #183f48;
+  --box-rule: #a8bdc1;
+  --box-paper: #f2f6f6;
+  --box-tag-paper: #214752;
+  --box-tag-ink: #fff;
+  border-top: 3px double var(--box-accent);
+}
+#main .module .mathbox[data-kind="algorithm"] {
+  --box-accent: #344e63;
+  --box-rule: #becbd4;
+  --box-paper: #f4f7f9;
+  --box-tag-paper: #dfe9f0;
+  --box-tag-ink: #29475e;
+}
+#main .module .mathbox[data-kind="example"] {
+  --box-accent: #76551d;
+  --box-rule: #d6c6a6;
+  --box-paper: #faf7ee;
+  --box-tag-paper: #f0e7d0;
+  --box-tag-ink: #70501b;
+  border-inline-start: 3px solid var(--box-rule);
+}
+#main .module .mathbox > .mathbox-head {
+  display: flex;
+  gap: 0.7em;
+  align-items: baseline;
+  margin: 0 0 0.48em;
+  color: var(--box-accent);
+}
+#main .module .mathbox-kind {
+  flex: none;
+  padding: 0.16em 0.48em;
+  border-radius: 2px;
+  background: var(--box-tag-paper);
+  color: var(--box-tag-ink);
+  font: 650 0.8em/1.55 var(--reader-sans);
+  letter-spacing: 0.055em;
+}
+#main .module .mathbox-title {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  color: var(--box-accent);
+  font: 650 1.15em/1.55 var(--reader-title);
+  text-wrap: pretty;
+}
+#main .module .mathbox > :where(p,ul,ol) {
+  margin-block: 0.48em;
+}
+#main .module .mathbox > .formula {
+  margin: 0.6em 0;
+  padding: 0.15em 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  max-inline-size: 100%;
+  overflow-x: auto;
+}
+#main .module .mathbox .formula .katex-display { margin-block: 0.35em; }
+#main .module .mathbox > :last-child { margin-bottom: 0; }
+#main .module .mathbox[data-kind="algorithm"] .mathbox-head {
+  padding-bottom: 0.55em;
+  border-bottom: 1px solid var(--box-rule);
+}
+#main .module .mathbox[data-kind="algorithm"] > ol {
+  margin-block: 0.65em;
+  padding-inline-start: 1.85em;
+  list-style-type: decimal-leading-zero;
+  font-variant-numeric: tabular-nums;
+}
+#main .module .mathbox[data-kind="algorithm"] > ol > li { padding-inline-start: 0.35em; }
+#main .module .mathbox[data-kind="algorithm"] > ol > li + li { margin-top: 0.42em; }
+#main .module .mathbox[data-kind="algorithm"] > ol > li::marker {
+  color: var(--box-accent);
+  font: 650 0.9em/1.5 var(--reader-sans);
+}
+
+[data-theme="dark"] #main .module .mathbox {
+  --box-accent: #a7e2ce;
+  --box-rule: #466c60;
+  --box-paper: #203a32;
+  --box-tag-paper: #2e5144;
+  --box-tag-ink: #d1f6e6;
+}
+[data-theme="dark"] #main .module .mathbox[data-kind="theorem"] {
+  --box-accent: #b2dee8;
+  --box-rule: #466971;
+  --box-paper: #23373c;
+  --box-tag-paper: #b2dee8;
+  --box-tag-ink: #12343e;
+}
+[data-theme="dark"] #main .module .mathbox[data-kind="algorithm"] {
+  --box-accent: #b9d6f0;
+  --box-rule: #506477;
+  --box-paper: #24343e;
+  --box-tag-paper: #32495a;
+  --box-tag-ink: #deedff;
+}
+[data-theme="dark"] #main .module .mathbox[data-kind="example"] {
+  --box-accent: #f1d59d;
+  --box-rule: #72644a;
+  --box-paper: #35342c;
+  --box-tag-paper: #514735;
+  --box-tag-ink: #f8e0ac;
+}
+.np-deck #main .module .mathbox { margin-block: 0.4em; }
+@media (max-width: 520px) {
+  #main .module .mathbox { --box-gutter: 13px; margin-block: 1.1em; }
+  #main .module .mathbox-head { gap: 0.55em; }
+}
+@media print {
+  :root #main .module .mathbox[data-kind] {
+    --box-accent: #222;
+    --box-rule: #999;
+    --box-tag-ink: #111;
+    --box-tag-paper: transparent;
+    --box-paper: white;
+    color: #111;
+    break-inside: avoid-page;
+  }
+  #main .module .mathbox-head { break-after: avoid-page; }
+  #main .module .mathbox-kind { border: 1px solid var(--box-rule); }
+}

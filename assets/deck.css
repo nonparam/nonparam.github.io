@@ -1,0 +1,89 @@
+/* The full-screen teaching view reuses the live lecture nodes. */
+.quiz-feedback:empty,.quiz-retry[hidden],#toTop[hidden],.np-deck [hidden]{display:none!important}
+.quiz .quiz-feedback {margin:.8em 0 0;color:var(--ink);font-weight:550}
+.quiz .quiz-correct,.quiz .quiz-correct:disabled {background:#e2efe9;color:#144b3c;border:1px solid #538678;opacity:1}
+.quiz .quiz-incorrect,.quiz .quiz-incorrect:disabled {background:#f9e7de;color:#793f2d;border:1px solid #a97666;opacity:1}
+:root[data-theme=dark] .quiz .quiz-correct {background:#234a3d;color:#d5f5e4;border-color:#89b7a6}
+:root[data-theme=dark] .quiz .quiz-incorrect {background:#583c32;color:#ffdfc9;border-color:#c49989}
+.quiz button:disabled:not(.quiz-correct,.quiz-incorrect) {opacity:.78}
+.quiz .quiz-retry {width:auto;margin-top:.75em;text-align:center}
+body.np-present {overflow:hidden}
+.np-deck,.np-deck * {box-sizing:border-box}
+.np-deck[open] {
+  --stage-color:#123f47; --stage-type:#fafbf5; --stage-caption:#c0e1d9;
+  --stage-accent:#f2c572;
+  position:fixed;inset:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;
+  width:100%;height:100%;height:100dvh;max-width:none;max-height:none;margin:0;
+  padding:0;overflow:hidden;background:var(--surface,#fbfcfa);color:var(--ink,#172e36);border:0;
+}
+.np-deck::backdrop {background:var(--surface,#fbfcfa)}
+.np-deck :focus-visible {outline:3px solid var(--teal,#17655e);outline-offset:2px}
+.np-deck button {cursor:pointer}
+.np-deck-head,.np-deck-foot {display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px max(4vw,calc((100vw - 1100px)/2));}
+.np-deck-head {background:var(--stage-color);color:var(--stage-type);padding-block:clamp(15px,2vh,26px)}
+.np-deck-head>div {min-width:0}
+.np-deck-head .np-deck-title {
+  margin:3px 0 0;color:var(--stage-type);font:600 clamp(23px,2.45vw,43px)/1.35 var(--serif,"Songti SC","SimSun",serif);
+  letter-spacing:0;text-wrap:balance;overflow-wrap:anywhere;
+}
+.np-deck-section {color:var(--stage-caption);font-size:clamp(13px,1.1vw,17px);line-height:1.5;font-weight:500}
+.np-deck-head button,.np-deck-foot button,.np-deck-grid header button {
+  flex:none;min-height:44px;min-width:44px;padding:6px 13px;
+  border:1px solid var(--line,#b5c4bf);border-radius:4px;color:var(--ink,#172e36);
+  background:transparent;font:600 15px/1.4 var(--sans,"Microsoft YaHei",sans-serif);
+}
+.np-deck-head button {border-color:#8aafae;color:var(--stage-type)}
+.np-deck-head button:hover,.np-deck-head button:focus-visible {border-color:var(--stage-accent);outline-color:var(--stage-accent)}
+.np-deck-content {min-width:0;min-height:0;overflow:auto;overscroll-behavior:contain;outline:none}
+.np-deck-content:focus {outline:none}
+.np-deck .np-slide-path>:not(.np-slide-path,.np-slide-member),.np-deck .np-step-hidden {display:none!important}
+.np-deck #main {
+  display:block;position:static;width:auto;max-width:1200px;min-height:0;
+  margin:0 auto;padding:clamp(16px,3.4vw,52px) clamp(16px,4.5vw,52px);
+}
+.np-deck #main .module {
+  display:block;max-width:none;margin:0;padding:0;border:0;background:transparent;
+  box-shadow:none;font-size:clamp(19px,1.95vw,31px);line-height:1.75;overflow-wrap:break-word;
+}
+.np-deck #main .module>.np-slide-member:first-of-type {margin-top:0}
+.np-deck #main .module p,.np-deck #main .module li {font-size:inherit;line-height:inherit;max-width:none}
+.np-deck #main .module .lab,.np-deck #main .module .quiz {margin:0;font-size:clamp(17px,1.45vw,23px);line-height:1.55}
+.np-deck #main .module .lab>h3:first-child,.np-deck #main .module .quiz>h3:first-child {display:none}
+.np-deck #main .module :is(.formula,.example,.note) {font-size:inherit}
+.np-deck #main .module .formula {overflow:auto;max-width:100%}
+.np-deck #main .module .lab svg.stat-figure {max-height:min(36vh,340px)!important;}
+.np-deck-foot {border-top:1px solid var(--line,#cbd5cf);padding-block:8px;background:var(--surface,#fbfcfa)}
+.np-deck-nav,.np-deck-tools {display:flex;align-items:center;gap:8px}
+.np-deck-count {padding-inline:6px;font-size:15px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.np-deck-foot button:is(:hover,:focus-visible),.np-deck-grid button:is(:hover,:focus-visible) {border-color:var(--teal,#17655e)}
+.np-deck-foot button[data-action=step] {border-color:var(--stage-color);background:var(--stage-color);color:var(--stage-type)}
+.np-deck-foot button[aria-pressed=true] {background:var(--panel,#e9efeb);border-color:var(--teal,#17655e);color:var(--ink,#172e36)}
+.np-deck button:disabled {opacity:.42;cursor:default}
+.np-deck-grid {position:absolute;inset:0;z-index:2;display:grid;place-items:center;padding:16px;background:#182d35b3}
+.np-deck-grid>div {width:min(810px,100%);max-height:86vh;display:flex;flex-direction:column;padding:clamp(16px,3vw,32px);background:var(--surface,#fbfcfa);border:1px solid var(--line,#cad4cf);border-radius:5px}
+.np-deck-grid header {display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:14px}
+.np-deck-grid h3 {margin:0;font:600 25px/1.4 var(--serif,"Songti SC","SimSun",serif)}
+.np-deck-grid ol {list-style:none;padding:3px;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 16px;overflow:auto;overscroll-behavior:contain}
+.np-deck-grid li {min-width:0}
+.np-deck-grid li button {display:block;width:100%;min-height:46px;height:100%;padding:10px 9px;text-align:left;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;font:inherit;font-size:15px;line-height:1.45}
+.np-deck-grid li [aria-current=page] {border-left:4px solid var(--teal);background:var(--panel);font-weight:650}
+@media(max-width:680px) {
+  .np-deck-head,.np-deck-foot {gap:8px;padding:8px 12px}
+  .np-deck-section {font-size:12px}
+  .np-deck-head .np-deck-title {font-size:20px}
+  .np-deck-head button,.np-deck-foot button {font-size:13px;min-width:36px;padding:5px 8px}
+  .np-deck-count {font-size:13px;padding-inline:2px}
+  .np-deck-nav,.np-deck-tools {gap:4px}
+  .np-deck-grid ol {grid-template-columns:1fr}
+  .np-deck #main .module .lab svg.stat-figure {max-height:none!important}
+}
+@media(max-width:370px) {.np-deck-foot {flex-wrap:wrap;justify-content:center}}
+@media(max-height:520px) and (orientation:landscape) {
+  .np-deck-head {padding-block:6px}
+  .np-deck-head .np-deck-title {font-size:20px}
+  .np-deck-foot {padding-block:4px}
+  .np-deck #main {padding-block:16px}
+}
+/* Keep the document chrome out of the projected viewport on browsers that
+   composite the fullscreen root above a previously opened modal. */
+body.np-present > :not(dialog.np-deck) {visibility:hidden!important}

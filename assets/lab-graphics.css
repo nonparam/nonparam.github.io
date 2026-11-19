@@ -1,0 +1,62 @@
+/* In the printed figures, a solid stroke denotes data; a dashed ochre rule
+   marks a threshold or reference. The diagram labels share the reading type. */
+:root {
+  --plot-data: #17655e;
+  --plot-reference: #80500f;
+  --plot-grid: #cbd7d2;
+  --plot-axis: #53695f;
+  --plot-text: #293f3a;
+  --plot-paper: #fbfcfa;
+  --plot-tint: #daeacb;
+  --plot-win: #d4e8df;
+  --plot-loss: #edf1ed;
+  --plot-tie: #f5e3bb;
+}
+:root[data-theme="dark"] {
+  --plot-data: #85d5c5;
+  --plot-reference: #f2c572;
+  --plot-grid: #405755;
+  --plot-axis: #a9bfb9;
+  --plot-text: #dbe8e2;
+  --plot-paper: #192c2f;
+  --plot-tint: #3b5d50;
+  --plot-win: #214d43;
+  --plot-loss: #293b3c;
+  --plot-tie: #534328;
+}
+.lab svg.stat-figure {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: .8rem auto .25rem;
+  color: var(--plot-text);
+  font-family: var(--sans, "Microsoft YaHei", sans-serif);
+  font-variant-numeric: tabular-nums;
+}
+.stat-figure text {
+  fill: var(--plot-text);
+  font-size: 14px;
+}
+.stat-figure .tick { fill: var(--plot-axis); }
+.stat-figure .axis-title { font-weight: 600; }
+.stat-figure .reference-label { fill: var(--plot-reference); font-weight: 650; }
+.stat-figure .plot-grid { stroke: var(--plot-grid); stroke-dasharray: 2 4; }
+.stat-figure .axis-edge { stroke: var(--plot-axis); }
+.stat-figure .reference-rule { stroke: var(--plot-reference); stroke-dasharray: 5 4; stroke-width: 1.8; }
+.stat-figure .reference-point { fill: var(--plot-reference); stroke: var(--surface, var(--plot-paper)); stroke-width: 2; }
+#u-cross-grid table { width: 100%; border-spacing: 4px; border-collapse: separate; table-layout: fixed; text-align: center; font-variant-numeric: tabular-nums; }
+#u-cross-grid th, #u-cross-grid td { text-align: center; padding: .35em .2em; border: 0; }
+#u-cross-grid th { background: transparent; color: var(--plot-axis); font-weight: 650; }
+#u-cross-grid td { color: var(--plot-text); font: 600 19px/1.55 Georgia, serif; }
+#u-cross-grid td[data-outcome=win] { background: var(--plot-win); }
+#u-cross-grid td[data-outcome=loss] { background: var(--plot-loss); }
+#u-cross-grid td[data-outcome=tie] { background: var(--plot-tie); }
+#u-pair-detail { display: grid; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: 3px 15px; margin-block: 10px; font-variant-numeric: tabular-nums; }
+#u-pair-detail > span { display: flex; justify-content: space-between; gap: 8px; padding-block: 3px; border-bottom: 1px solid var(--plot-grid); }
+#u-pair-detail > span > b { font-weight: 550; }
+@media print {
+  :root, :root[data-theme=dark] {
+    --plot-data: #125349; --plot-reference: #704210; --plot-text: #152b24;
+    --plot-axis: #43524a; --plot-grid: #bcc5bd;
+  }
+}

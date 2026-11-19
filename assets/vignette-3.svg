@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126 78" width="126" height="78" role="img" aria-labelledby="t d">
+  <title id="t">自助均值的精确分布</title>
+  <desc id="d">从 1、2、3 中有放回地抽三次。27 个等可能结果按均值归堆，从左到右各有 1、3、6、7、6、3、1 个。</desc>
+  <rect width="126" height="78" rx="4" fill="#f5edd8"/>
+  <path d="M13 60h100" stroke="#ad9c72" stroke-width=".9"/>
+  <path d="M20.0 60v2.7" stroke="#ad9c72" stroke-width=".9"/>
+  <circle cx="20.0" cy="55" r="2.35" fill="#a1773b"/>
+  <path d="M34.3 60v2.7" stroke="#ad9c72" stroke-width=".9"/>
+  <circle cx="34.3" cy="55" r="2.35" fill="#a1773b"/>
+  <circle cx="34.3" cy="49" r="2.35" fill="#a1773b"/>
+  <circle cx="34.3" cy="43" r="2.35" fill="#a1773b"/>
+  <path d="M48.6 60v2.7" stroke="#ad9c72" stroke-width=".9"/>
+  <circle cx="48.6" cy="55" r="2.35" fill="#a1773b"/>
+  <circle cx="48.6" cy="49" r="2.35" fill="#a1773b"/>
+  <circle cx="48.6" cy="43" r="2.35" fill="#a1773b"/>
+  <circle cx="48.6" cy="37" r="2.35" fill="#a1773b"/>
+  <circle cx="48.6" cy="31" r="2.35" fill="#a1773b"/>
+  <circle cx="48.6" cy="25" r="2.35" fill="#a1773b"/>
+  <path d="M62.9 60v2.7" stroke="#ad9c72" stroke-width=".9"/>
+  <circle cx="62.9" cy="55" r="2.35" fill="#715023"/>
+  <circle cx="62.9" cy="49" r="2.35" fill="#715023"/>
+  <circle cx="62.9" cy="43" r="2.35" fill="#715023"/>
+  <circle cx="62.9" cy="37" r="2.35" fill="#715023"/>
+  <circle cx="62.9" cy="31" r="2.35" fill="#715023"/>
+  <circle cx="62.9" cy="25" r="2.35" fill="#715023"/>
+  <circle cx="62.9" cy="19" r="2.35" fill="#715023"/>
+  <path d="M77.2 60v2.7" stroke="#ad9c72" stroke-width=".9"/>
+  <circle cx="77.2" cy="55" r="2.35" fill="#a1773b"/>
+  <circle cx="77.2" cy="49" r="2.35" fill="#a1773b"/>
+  <circle cx="77.2" cy="43" r="2.35" fill="#a1773b"/>
+  <circle cx="77.2" cy="37" r="2.35" fill="#a1773b"/>
+  <circle cx="77.2" cy="31" r="2.35" fill="#a1773b"/>
+  <circle cx="77.2" cy="25" r="2.35" fill="#a1773b"/>
+  <path d="M91.5 60v2.7" stroke="#ad9c72" stroke-width=".9"/>
+  <circle cx="91.5" cy="55" r="2.35" fill="#a1773b"/>
+  <circle cx="91.5" cy="49" r="2.35" fill="#a1773b"/>
+  <circle cx="91.5" cy="43" r="2.35" fill="#a1773b"/>
+  <path d="M105.8 60v2.7" stroke="#ad9c72" stroke-width=".9"/>
+  <circle cx="105.8" cy="55" r="2.35" fill="#a1773b"/>
+</svg>

@@ -1,0 +1,125 @@
+/* Each experiment keeps its Python controls with its own data and computation. */
+[data-page="lecture"] .lab .lab-heading {
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;
+  gap:8px 14px; margin: -1px -22px 15px; padding:10px 19px 10px 21px;
+  color:var(--reader-onplate); background:var(--reader-plate);border-radius:4px 4px 0 0;
+}
+#main .lab .lab-heading h3 {
+  color:inherit; flex:1 1 220px; margin:0;
+  font:600 20px/1.5 var(--reader-title);
+}
+#main .lab .py-toggle {
+  flex:none; min-height:36px; padding:4px 11px; color:#eef7f3; font:600 14px/1.5 var(--reader-sans);
+  background:transparent; border:1px solid #8eb4af; border-radius:4px;
+}
+#main .lab .py-toggle:hover,#main .lab .py-toggle[aria-expanded="true"]{background:#e3f0e8;color:#16413d}
+.py-panel {
+  --editor-bg: #fff;
+  --editor-toolbar: #f4f6f8;
+  --editor-gutter: #f8f9fb;
+  --editor-rule: #cbd2d9;
+  --editor-ink: #25303a;
+  --editor-muted: #55636e;
+  --editor-selection: #caddf7;
+  --editor-keyword: #9b2393;
+  --editor-function: #176066;
+  --editor-builtin: #674495;
+  --editor-string: #ad292d;
+  --editor-number: #1f4598;
+  --editor-comment: #4c6861;
+  --editor-type: #624392;
+  --editor-decorator: #855619;
+  --editor-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, "Microsoft YaHei UI", monospace;
+  --editor-size: 14px;
+  --editor-leading: 1.65;
+}
+:root[data-theme="dark"] .py-panel {
+  --editor-bg: #22252c;
+  --editor-toolbar: #2c3039;
+  --editor-gutter: #272a32;
+  --editor-rule: #505662;
+  --editor-ink: #edf0f4;
+  --editor-muted: #b0b9c5;
+  --editor-selection: #404f67;
+  --editor-keyword: #fc89c2;
+  --editor-function: #7fd9d3;
+  --editor-builtin: #cbaaf1;
+  --editor-string: #ff9184;
+  --editor-number: #b9b1ff;
+  --editor-comment: #a0b6a7;
+  --editor-type: #d3a5f2;
+  --editor-decorator: #e9bc87;
+}
+#main .py-panel {
+  min-width:0; margin:0 0 17px; border:1px solid var(--editor-rule); border-radius:6px;
+  background:var(--editor-bg); color:var(--editor-ink);
+}
+.py-tools {
+  display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:43px;
+  padding:4px 10px 4px 14px; background:var(--editor-toolbar);
+  border-radius:5px 5px 0 0; border-bottom:1px solid var(--editor-rule);
+}
+.py-note {color:var(--editor-muted);font:500 13px/1.5 var(--reader-sans)}
+#main .py-panel .py-copy {
+  flex:none; min-height:34px; color:var(--editor-ink); border:1px solid var(--editor-rule);
+  border-radius:4px; background:var(--editor-bg); font:600 13px var(--reader-sans); padding:5px 11px;
+}
+#main .py-panel .py-copy:is(:hover,:focus-visible):enabled {border-color:var(--editor-muted)}
+#main .py-panel .py-copy:disabled {opacity:.55;cursor:default}
+#main .py-scroll {
+  display:grid; grid-template-columns:max-content minmax(max-content, 1fr);
+  min-width:0; max-width:100%; max-height:clamp(16rem,44vh,27rem);
+  overflow:auto; overscroll-behavior-x:contain; border-radius:0 0 5px 5px;
+  font:400 var(--editor-size)/var(--editor-leading) var(--editor-font);
+  font-variant-ligatures:none; text-size-adjust:100%; tab-size:4;
+}
+#main .py-scroll:focus-visible {outline-offset:-2px}
+#main .py-gutter {
+  position:sticky; left:0; z-index:1; align-self:stretch;
+  min-width:3.4ch; padding:12px 9px; border-right:1px solid var(--editor-rule);
+  white-space:pre; text-align:right; font:inherit; font-variant-numeric:tabular-nums;
+  background:var(--editor-gutter); color:var(--editor-muted); user-select:none;
+}
+#main .py-panel pre {
+  margin:0; padding:12px 16px; border:0; border-radius:0;
+  max-height:none; overflow:visible; background:transparent; color:inherit;
+  text-align:left; font:inherit; white-space:pre; overflow-wrap:normal; word-break:normal;
+}
+#main .py-panel .py-source {display:block;font:inherit;color:inherit;background:none;padding:0;white-space:pre}
+.py-source .py-kw {color:var(--editor-keyword);font-weight:600}
+.py-source .py-fn {color:var(--editor-function)}
+.py-source .py-builtin {color:var(--editor-builtin)}
+.py-source .py-type {color:var(--editor-type)}
+.py-source .py-string {color:var(--editor-string)}
+.py-source .py-number {color:var(--editor-number)}
+.py-source .py-comment {color:var(--editor-comment)}
+.py-source .py-decor {color:var(--editor-decorator)}
+.py-source::selection,.py-source span::selection {background:var(--editor-selection);color:var(--editor-ink)}
+#main .py-panel .py-status {margin:0;padding:5px 12px;font-size:13px;color:var(--editor-muted)}
+.py-status:empty {display:none}
+#main details.walkthrough {margin:1em 0 1.35em;padding:0 0 0 14px;border-left:2px solid var(--reader-margin);color:var(--reader-ink)}
+#main details.walkthrough > summary {cursor:pointer;padding:5px 0;font-weight:650;color:var(--teal)}
+#main details.walkthrough[open] > summary {margin-bottom:8px}
+#main details.walkthrough p:last-child {margin-bottom:0}
+.np-deck #main .module .lab .lab-heading {justify-content:flex-end;margin:0 0 10px;padding:0;background:none}
+.np-deck #main .lab-heading h3 {display:none}
+.np-deck #main .lab .py-toggle {color:var(--reader-ink);border-color:var(--reader-rule);background:var(--reader-paper)}
+.np-deck #main .py-scroll {--editor-size:clamp(15px,1.45vw,21px);max-height:42vh}
+@media(max-width:640px){
+  [data-page="lecture"] .lab .lab-heading{margin:-1px -14px 12px;padding:10px 13px;gap:6px}
+  #main .lab .lab-heading h3{font-size:18px;flex-basis:170px}
+  #main .lab .py-toggle,#main .py-panel .py-copy{min-height:44px}
+  #main .py-scroll {--editor-size:13px}
+  #main .py-panel pre {padding-inline:10px}
+  #main .py-gutter {padding-inline:6px}
+}
+@media print {
+  #main .lab .py-toggle,#main .py-copy,#main .py-status {display:none}
+  #main .py-panel {background:white;color:black;border-color:#aaa}
+  #main .py-tools {background:white;color:black}
+  #main .py-note {color:#444}
+  #main .py-panel .py-scroll {display:block;max-height:none;overflow:visible}
+  #main .py-gutter {display:none}
+  #main .py-panel pre,#main .py-panel .py-source {white-space:pre-wrap;overflow-wrap:anywhere}
+  #main .py-panel .py-source span {color:#222}
+}

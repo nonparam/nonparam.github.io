@@ -1,0 +1,61 @@
+/* Shared drawing inks for the course's worked diagrams. The diagrams retain
+   individual scales, shapes, line styles and labels in both colour schemes. */
+.teaching-figure {
+  --fig-ink:#173c41;
+  --fig-muted:#4e6667;
+  --fig-rule:#98b0ac;
+  --fig-primary:#14655e;
+  --fig-secondary:#855615;
+  --fig-soft:#e1efe9;
+  --fig-warm:#f4e8c9;
+  --fig-paper:#fafcf9;
+}
+:root[data-theme="dark"] .teaching-figure {
+  --fig-ink:#e6efea;
+  --fig-muted:#b7ccc5;
+  --fig-rule:#789690;
+  --fig-primary:#86d7c5;
+  --fig-secondary:#f2c779;
+  --fig-soft:#264641;
+  --fig-warm:#4b4230;
+  --fig-paper:#1c3031;
+}
+#main .module figure.teaching-figure{
+  margin:1.5em 0 1.7em;padding:0;min-width:0;break-inside:avoid;
+  scroll-margin-block-start:1.5rem;
+}
+.teaching-figure .figure-panels {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,17.8rem),1fr)); align-items:center;
+  gap:16px;padding:clamp(12px,2vw,24px);background:var(--fig-paper);
+  border-block:1px solid var(--reader-rule);color:var(--fig-ink);
+}
+.teaching-figure .figure-panels > svg{
+  display:block;width:100%;max-width:520px;height:auto;margin:0 auto;
+  font-family:var(--reader-sans,var(--sans));font-variant-numeric:tabular-nums;
+}
+.teaching-figure .figure-panels > svg:only-child{max-width:565px}
+#main .module figure.teaching-figure>figcaption{
+  margin:9px 0 0;color:var(--reader-soft);font:400 14px/1.7 var(--reader-sans);
+}
+.visual-caption-heading{display:flex;flex-wrap:wrap;align-items:baseline;gap:3px 12px;margin:0 0 3px;color:var(--reader-ink)}
+.visual-number{color:var(--reader-sea);font-family:var(--reader-sans);font-size:13px;font-variant-numeric:tabular-nums}
+.visual-caption-heading strong{font:650 18px/1.5 var(--reader-title)}
+.figure-index{margin-top:12px}
+.figure-index > summary{width:fit-content;cursor:pointer;color:var(--reader-sea);font:600 14px/1.65 var(--reader-sans);padding-block:4px}
+.figure-index > ol{margin:3px 0 0;padding-inline-start:22px;max-width:100%;font:400 14px/1.6 var(--reader-sans)}
+.figure-index li{margin:1px 0;padding:0 0 0 2px}
+.figure-index a{display:inline-block;padding:4px 0;text-underline-offset:3px}
+.np-deck #main .module figure.teaching-figure{margin:0}
+.np-deck .teaching-figure .figure-panels{border:0;padding-block:0}
+.np-deck .teaching-figure .figure-panels > svg{max-width:570px;max-height:52vh}
+.np-deck .teaching-figure .figure-panels > svg:only-child{max-width:720px}
+.np-deck #main .module .teaching-figure>figcaption{font-size:clamp(16px,1.45vw,24px);padding-inline:1%;margin-top:.65em}
+.np-deck .teaching-figure .visual-caption-heading{display:none}
+@media(max-width:640px){
+  .teaching-figure .figure-panels{gap:11px;padding:10px 2px}
+  #main .module figure.teaching-figure{scroll-margin-block-start:64px}
+}
+@media print{
+  .figure-index{display:none}
+  :root[data-theme] .teaching-figure{--fig-paper:white;--fig-ink:#182d2c;--fig-muted:#474f50;--fig-primary:#174e4b;--fig-secondary:#78541e;--fig-soft:#e8eeea;--fig-warm:#eee7db;--fig-rule:#9ba5a2}
+}
